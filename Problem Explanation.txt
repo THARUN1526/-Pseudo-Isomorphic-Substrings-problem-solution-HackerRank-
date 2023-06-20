@@ -1,0 +1,41 @@
+The problem statement presents a scenario where you are given a string S of lowercase alphabetical characters. For each prefix of S, denoted by S', you need to find the size of the largest possible set of strings such that all elements of the set are substrings of S' and no two strings in the set are pseudo-isomorphic to each other.
+
+To understand the problem, let's break down the definitions provided:
+
+- Two strings A and B are pseudo-isomorphic if:
+  1. Their lengths are equal.
+  2. For every pair (i, j), where 1 <= i < j <= |A| (length of A), B[i] = B[j] if and only if A[i] = A[j].
+  3. For every pair (i, j), where 1 <= i < j <= |A| (length of A), B[i] != B[j] if and only if A[i] != A[j].
+
+Now, let's understand the process step by step:
+
+1. Read the input string S.
+
+2. Initialize an empty set or list to store the sizes of the largest possible sets for each prefix.
+
+3. Iterate through each character in the string S.
+
+4. For each prefix of S denoted by S', do the following:
+   - Initialize a set or list to store the substrings of S' that satisfy the given conditions.
+   - Iterate over all possible substrings of S' and check if they can be added to the set without violating the pseudo-isomorphism conditions.
+   - If a substring can be added, add it to the set.
+   - Update the size of the largest possible set for the current prefix by the size of the set.
+   - Append the size to the list.
+
+5. Output the list containing the sizes of the largest possible sets for each prefix of S.
+
+Let's take an example to understand the process:
+
+Given S = "abbabab"
+
+- For the first character 'a', the set can only contain 'a'. Hence, the size of the largest possible set is 1.
+
+- For the first 2 characters 'ab', the set can contain 'a', 'b', and 'ab'. However, 'a' is pseudo-isomorphic to 'b', so we remove either 'a' or 'b' from the set. Hence, the size of the largest possible set is 2.
+
+- For the first 3 characters 'abb', the set can contain 'a', 'b', 'ab', and 'abb'. Again, 'a' is pseudo-isomorphic to 'b', so we remove either 'a' or 'b'. Hence, the size of the largest possible set is 4.
+
+- Similarly, we continue this process for each prefix, updating the size of the largest possible set based on the pseudo-isomorphism conditions.
+
+Finally, we output the list of sizes for each prefix of S.
+
+Please note that the above explanation provides a general understanding of the problem and its approach. To obtain the complete solution, you will need to implement the algorithm described above and handle the input/output operations accordingly.
